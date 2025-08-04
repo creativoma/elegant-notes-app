@@ -6,7 +6,7 @@
 
 A minimalist and elegant notes application designed for focus, creativity, and productivity. Built with modern web technologies to provide a distraction-free writing experience.
 
-[Elegant Notes App](elegantnotesapp.com)
+[Elegant Notes App](https://elegantnotesapp.com)
 
 ## Overview
 
