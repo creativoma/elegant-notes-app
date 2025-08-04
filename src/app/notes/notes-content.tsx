@@ -105,7 +105,7 @@ export const NotesPage = () => {
     const diffTime = Math.abs(now.getTime() - date.getTime())
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
 
-    if (diffDays === 1) return 'Today'
+    if (diffDays <= 1) return 'Today'
     if (diffDays === 2) return 'Yesterday'
     if (diffDays <= 7) return `${diffDays - 1} days ago`
 
