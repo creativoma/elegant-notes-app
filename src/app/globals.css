@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-accent: #0751cf;
+  --color-accent-hover: #0b5edc;
+  --font-family-sans: 'Inter', sans-serif;
+  --font-family-serif: 'Lora', serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  scroll-behavior: smooth;
+}
