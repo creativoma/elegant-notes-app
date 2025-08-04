@@ -2,7 +2,7 @@
 
 A minimalist and elegant notes application designed for focus, creativity, and productivity. Built with modern web technologies to provide a distraction-free writing experience.
 
-Experience the app live: [Elegant Notes App](https://elegant-notes-app.vercel.app)
+[Elegant Notes App](elegantnotesapp.com)
 
 ![Home Page](public/screenshot.png)
 
