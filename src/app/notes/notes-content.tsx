@@ -19,6 +19,7 @@ import {
   X,
 } from 'lucide-react'
 import { motion } from 'motion/react'
+import Link from 'next/link'
 import { useEffect, useRef } from 'react'
 
 import { Logo } from '@/src/components/logo'
@@ -187,12 +188,14 @@ export const NotesPage = () => {
           <div className="relative border-b border-gray-200 p-4 dark:border-gray-700">
             <div className="mb-4 flex items-center justify-between gap-2">
               <div className="flex items-center gap-1">
-                <ChevronLeftIcon
-                  className={cn(
-                    'h-4 w-4',
-                    theme === 'dark' ? 'text-white' : 'text-accent',
-                  )}
-                />
+                <Link href="/">
+                  <ChevronLeftIcon
+                    className={cn(
+                      'h-4 w-4',
+                      theme === 'dark' ? 'text-white' : 'text-accent',
+                    )}
+                  />
+                </Link>
                 <Logo
                   className={cn(
                     'text-base md:!text-lg',
