@@ -1,10 +1,12 @@
 # Elegant Notes App
 
+[![Version](https://img.shields.io/badge/version-0.1.2-blue.svg?style=flat-square)](https://github.com/creativoma/elegant-notes-app/releases)
+
+![Home Page](public/screenshot.png)
+
 A minimalist and elegant notes application designed for focus, creativity, and productivity. Built with modern web technologies to provide a distraction-free writing experience.
 
 [Elegant Notes App](elegantnotesapp.com)
-
-![Home Page](public/screenshot.png)
 
 ## Overview
 
@@ -60,13 +62,4 @@ Built with performance in mind, the app uses Next.js 15's latest features includ
 
 ## Changelog
 
-### Version 0.1.0 (Current)
-
-- Initial release
-- Core note-taking functionality
-- Local storage persistence
-- Responsive design
-- Dark/light theme support
-- Search functionality
-- Privacy-focused approach
-- Modern UI with smooth animations
+For detailed release notes and version history, see [CHANGELOG.md](CHANGELOG.md)
