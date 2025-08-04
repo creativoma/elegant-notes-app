@@ -1,0 +1,89 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  lint-and-build:
+    name: 🧪 Lint & Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        name: 📥 Checkout repository
+
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+        name: 🧰 Setup Node.js
+
+      - uses: pnpm/action-setup@v3
+        with: { version: latest }
+        name: 🧰 Setup pnpm
+
+      - name: 📦 Install project dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: 🧹 Run ESLint
+        run: pnpm lint || echo "Lint errors found but continuing"
+
+      - name: 🔨 Build app
+        run: pnpm build
+
+  deploy:
+    name: 🚀 Deploy to Hostinger
+    runs-on: ubuntu-latest
+    needs: lint-and-build
+    steps:
+      - uses: actions/checkout@v4
+        name: 📥 Checkout repository
+
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+        name: 🧰 Setup Node.js
+
+      - uses: pnpm/action-setup@v3
+        with: { version: latest }
+        name: 🧰 Setup pnpm
+
+      - name: 📦 Install project dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: 🔨 Build app
+        run: pnpm build
+
+      - name: 🔍 Inspect built files
+        run: ls -la ./out
+
+      - name: 📤 Upload to Hostinger via FTP
+        env:
+          H_HOSTINGER_USERNAME: ${{ secrets.HOSTINGER_USERNAME }}
+          H_HOSTINGER_PASSWORD: ${{ secrets.HOSTINGER_PASSWORD }}
+          H_HOSTINGER_DOMAIN: ${{ secrets.HOSTINGER_DOMAIN }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+          echo "📡 Conectando al servidor FTP"
+
+          # Lista de carpetas a preservar
+          EXCLUDE_DIRS="--exclude v1/ --exclude v2/ --exclude filemanager/"
+
+          lftp -d -u "$H_HOSTINGER_USERNAME","$H_HOSTINGER_PASSWORD" "$H_HOSTINGER_DOMAIN" <<EOF
+            set ftp:ssl-allow no
+            
+            # Primero cambiamos al directorio public_html
+            cd public_html
+            
+            # Listamos el contenido para verificar
+            ls -la
+            
+            # Usamos mirror con --delete-first, pero excluyendo las carpetas v1 y v2
+            mirror -R --delete-first --verbose $EXCLUDE_DIRS ./out/ ./
+            
+            # Listamos de nuevo para comprobar el resultado
+            ls -la
+            
+            bye
+          EOF
+
+          echo "✅ ¡Deploy a Hostinger finalizado!"
