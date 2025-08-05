@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3] - 2025-08-05
+
+### Added
+
+- Add note title input focus handling
+- Add web version in home page
+
 ## [0.1.2] - 2025-08-04
 
 ### Fixed
