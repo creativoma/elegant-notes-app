@@ -342,7 +342,7 @@ export const NotesPage = () => {
                 <Menu size={18} />
               </button>
             )}
-            <div className="flex min-w-0 flex-1 items-center gap-2">
+            <div className="flex min-w-0 flex-1 items-center gap-2 pr-2">
               <input
                 type="text"
                 value={currentNote?.title || ''}
