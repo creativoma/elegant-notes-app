@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.4] - 2025-08-05
+
+### Fixed
+
+- Fix right padding for note title input container
+
 ## [0.1.3] - 2025-08-05
 
 ### Added
