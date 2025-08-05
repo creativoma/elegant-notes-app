@@ -78,7 +78,7 @@ export const NotesPage = () => {
     if (isZenMode && textareaRef.current) {
       textareaRef.current.focus()
     }
-  }, [isZenMode])
+  }, [isZenMode, textareaRef, currentNote])
 
   const downloadNote = () => {
     if (!currentNote) return
@@ -159,6 +159,7 @@ export const NotesPage = () => {
               fontSize: '14px',
               lineHeight: '1.7',
             }}
+            autoFocus
           />
         </div>
       </div>
@@ -342,9 +343,15 @@ export const NotesPage = () => {
               </button>
             )}
             <div className="flex min-w-0 flex-1 items-center gap-2">
-              <h2 className="!m-0 truncate text-sm font-medium sm:text-base">
-                {currentNote?.title || 'Untitled'}
-              </h2>
+              <input
+                type="text"
+                value={currentNote?.title || ''}
+                onChange={(e) =>
+                  currentNote && updateNoteTitle(currentNote.id, e.target.value)
+                }
+                placeholder="Untitled"
+                className="!m-0 min-w-0 flex-1 truncate border-none bg-transparent text-sm font-medium outline-none sm:text-base"
+              />
               <p className="-mb-0.5 hidden text-xs text-gray-500 sm:block dark:text-gray-400">
                 {formatDate(currentNote?.updatedAt || new Date().toISOString())}
               </p>
@@ -420,6 +427,7 @@ export const NotesPage = () => {
               fontSize: '14px',
               lineHeight: '1.7',
             }}
+            autoFocus
           />
 
           <div className="absolute right-2 bottom-2 flex items-center gap-2 bg-gray-100 px-2 py-1 text-xs text-gray-600 sm:right-4 sm:bottom-4 sm:gap-3 sm:px-3 dark:bg-gray-800 dark:text-gray-300">
