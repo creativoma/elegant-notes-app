@@ -51,8 +51,8 @@ export const Footer = () => {
 
         <div className="border-t border-blue-400/30 pt-4 sm:pt-6">
           <p className="text-xs text-blue-100 sm:text-sm">
-            © {new Date().getFullYear()} Elegant Notes App. Crafted for
-            creative minds by{' '}
+            © {new Date().getFullYear()} Elegant Notes App. Crafted for creative
+            minds by{' '}
             <Link
               href="https://marianoalvarez.dev"
               className="text-blue-100 underline"
