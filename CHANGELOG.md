@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.5] - 2025-12-06
+
+### Changed
+
+- Update ESLint configuration and dependencies - Migrated to flat config format (eslint.config.mjs) with improved TypeScript and React support, updated dependencies to latest versions
+
 ## [0.1.4] - 2025-08-05
 
 ### Fixed
