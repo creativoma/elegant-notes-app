@@ -1,6 +1,6 @@
 # Elegant Notes App
 
-[![Version](https://img.shields.io/badge/version-0.1.4-blue.svg?style=flat-square)](https://github.com/creativoma/elegant-notes-app/releases)
+[![Version](https://img.shields.io/badge/version-0.1.5-blue.svg?style=flat-square)](https://github.com/creativoma/elegant-notes-app/releases)
 
 ![Home Page](public/screenshot.png)
 
