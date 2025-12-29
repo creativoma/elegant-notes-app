@@ -3,6 +3,7 @@ import './globals.css'
 import { ThemeProvider } from 'next-themes'
 import type React from 'react'
 
+import { ErrorBoundary } from '@/src/components/error-boundary'
 import { NoteToaster } from '@/src/components/toaster'
 
 // Fallback to system fonts to ensure offline functionality
@@ -36,15 +37,17 @@ export default function RootLayout({
       }
     >
       <body>
-        <ThemeProvider
-          enableSystem={true}
-          attribute="class"
-          storageKey="theme"
-          defaultTheme="system"
-        >
-          {children}
-          <NoteToaster />
-        </ThemeProvider>
+        <ErrorBoundary>
+          <ThemeProvider
+            enableSystem={true}
+            attribute="class"
+            storageKey="theme"
+            defaultTheme="system"
+          >
+            {children}
+            <NoteToaster />
+          </ThemeProvider>
+        </ErrorBoundary>
       </body>
     </html>
   )
