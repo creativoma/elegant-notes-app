@@ -1,24 +1,17 @@
 import type { Metadata } from 'next'
-import { Inter, Lora } from 'next/font/google'
+import './globals.css'
 import { ThemeProvider } from 'next-themes'
 import type React from 'react'
-
-import './globals.css'
 
 import { ErrorBoundary } from '@/src/components/error-boundary'
 import { NoteToaster } from '@/src/components/toaster'
 
-const lora = Lora({
-  subsets: ['latin'],
-  variable: '--font-lora',
-  display: 'swap',
-})
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
+// Fallback to system fonts to ensure offline functionality
+// and avoid network dependencies during build
+const fontVariables = {
+  lora: '--font-lora',
+  inter: '--font-inter',
+}
 
 export const metadata: Metadata = {
   title: 'Elegant Notes App',
@@ -34,8 +27,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lora.variable} ${inter.variable} `}
       suppressHydrationWarning
+      style={
+        {
+          [fontVariables.lora]: 'Georgia, Cambria, "Times New Roman", serif',
+          [fontVariables.inter]:
+            '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+        } as React.CSSProperties
+      }
     >
       <body>
         <ErrorBoundary>

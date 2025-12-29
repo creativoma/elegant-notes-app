@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.7] - 2025-12-29
+## [0.1.9] - 2025-12-29
 
 ### Changed
 
@@ -30,6 +30,32 @@
 - **Code Quality:**
   - Added explanatory comments for ESLint disable directives in hydration boundaries
   - Fixed React hooks linting for intentional hydration patterns in HydrationBoundary and useClientTheme
+
+## [0.1.8] - 2025-12-29
+
+### Fixed
+
+- Fix Google Fonts build failure - Replaced `next/font/google` with system font fallbacks (Georgia, -apple-system, BlinkMacSystemFont) to eliminate network dependencies during build and align with offline-first design
+- Fix package.json import warning - Changed header.tsx to use default import for Next.js 16 compatibility
+
+### Added
+
+- Add comprehensive debugging infrastructure with browser console utilities (`window.elegantNotesDebug`) for localStorage inspection, state validation, quota monitoring, backup/restore, and memory leak detection
+- Add DEBUGGING.md - Complete investigation workflows for state management, hydration errors, performance, data loss, and build issues
+- Add TESTING.md - Manual test procedures, performance benchmarks, browser compatibility matrix, and automated test examples
+- Add TypeScript declarations for debug utilities in `src/types/global.d.ts`
+
+### Security
+
+- Implement safe property access via `Object.prototype.hasOwnProperty.call()`
+- Add browser compatibility checks for Chrome-specific APIs
+- Zero CodeQL vulnerabilities verified
+
+## [0.1.7] - 2025-12-29
+
+### Changed
+
+- Validate codebase compliance with Feature Development Specialist guidelines - Comprehensive assessment confirming full compliance with all architectural and implementation guidelines including technology stack, privacy-first approach, TypeScript type safety, minimalist philosophy, offline capability, responsive design, code quality standards, state management patterns, and localStorage data structure. No code changes required as codebase already meets all requirements.
 
 ## [0.1.6] - 2025-12-29
 

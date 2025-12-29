@@ -63,3 +63,12 @@ Built with performance in mind, the app uses Next.js 15's latest features includ
 ## Changelog
 
 For detailed release notes and version history, see [CHANGELOG.md](CHANGELOG.md)
+
+## Debugging and Testing
+
+For comprehensive debugging workflows and testing procedures:
+
+- **[DEBUGGING.md](DEBUGGING.md)** - Complete debugging guide with common issues and solutions
+- **[TESTING.md](TESTING.md)** - Manual and automated testing procedures
+
+Debug utilities are available in development mode via `window.elegantNotesDebug` in the browser console.

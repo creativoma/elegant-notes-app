@@ -21,6 +21,7 @@ Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' '
 ```
 
 **Note on CSP `unsafe-inline` and `unsafe-eval`:**
+
 - Next.js with static export requires `unsafe-inline` for styles and scripts
 - React's framework code requires `unsafe-eval` for hydration
 - This is a known limitation of static site generation

@@ -2,8 +2,10 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
-import { version } from '@/package.json'
+import packageJson from '@/package.json'
 import { Logo } from '@/src/components/logo'
+
+const version = packageJson.version
 
 export const Header = () => {
   return (
