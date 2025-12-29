@@ -8,6 +8,9 @@ export function useClientTheme() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    // Safe pattern: This effect runs once on mount to set mounted state.
+    // This prevents server/client mismatch for theme rendering.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
   }, [])
 
