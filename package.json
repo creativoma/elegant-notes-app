@@ -1,6 +1,6 @@
 {
   "name": "elegant-notes-app",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "This application was created to fulfill a personal need for a clean, intuitive note-taking solution and is now used by my team at work. It emphasizes simplicity, local storage, and privacy while providing essential features for organizing thoughts and ideas.",
   "author": "Mariano Álvarez",
   "license": "MIT",
