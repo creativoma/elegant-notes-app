@@ -67,7 +67,6 @@ For detailed release notes and version history, see [CHANGELOG.md](CHANGELOG.md)
 ## Debugging and Testing
 
 For comprehensive debugging workflows and testing procedures:
-
 - **[DEBUGGING.md](DEBUGGING.md)** - Complete debugging guide with common issues and solutions
 - **[TESTING.md](TESTING.md)** - Manual and automated testing procedures
 

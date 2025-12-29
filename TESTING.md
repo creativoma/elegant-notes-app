@@ -25,7 +25,6 @@ pnpm dev
 ### 1. State Management Tests
 
 #### Test: Create New Note
-
 1. Click "New Note" button in sidebar
 2. Verify:
    - [ ] New note appears at top of list
@@ -35,20 +34,17 @@ pnpm dev
    - [ ] Note appears in localStorage
 
 **Expected localStorage structure:**
-
 ```json
 {
   "state": {
-    "notes": [
-      {
-        "id": 123456789,
-        "title": "Untitled",
-        "content": "",
-        "createdAt": "2024-01-01T00:00:00.000Z",
-        "updatedAt": "2024-01-01T00:00:00.000Z",
-        "starred": false
-      }
-    ],
+    "notes": [{
+      "id": 123456789,
+      "title": "Untitled",
+      "content": "",
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "starred": false
+    }],
     "activeNoteId": 123456789,
     "isSidebarOpen": true,
     "soundEnabled": false
@@ -58,7 +54,6 @@ pnpm dev
 ```
 
 #### Test: Edit Note Content
-
 1. Type "Hello World" in textarea
 2. Verify:
    - [ ] Text appears immediately (no lag)
@@ -68,14 +63,12 @@ pnpm dev
    - [ ] Character count updates
 
 **Debug commands:**
-
 ```javascript
 // In browser console
 window.elegantNotesDebug.debugStoreState()
 ```
 
 #### Test: Edit Note Title
-
 1. Click on note title in sidebar
 2. Type new title
 3. Verify:
@@ -85,7 +78,6 @@ window.elegantNotesDebug.debugStoreState()
    - [ ] Change persists in localStorage
 
 #### Test: Star/Unstar Note
-
 1. Click star icon on a note
 2. Verify:
    - [ ] Star icon fills/unfills
@@ -94,7 +86,6 @@ window.elegantNotesDebug.debugStoreState()
    - [ ] Star state persists after refresh
 
 #### Test: Delete Note
-
 1. Click delete icon on a note (trash can)
 2. Verify:
    - [ ] Note is removed from list
@@ -103,11 +94,9 @@ window.elegantNotesDebug.debugStoreState()
    - [ ] Change persists in localStorage
 
 **Edge case:** Try to delete the only note
-
 - Expected: Note should not be deleted
 
 #### Test: Search Notes
-
 1. Enter text in search box
 2. Verify:
    - [ ] Notes filter in real-time
@@ -117,7 +106,6 @@ window.elegantNotesDebug.debugStoreState()
    - [ ] "No results" message if no matches
 
 #### Test: Persistence After Refresh
-
 1. Create a note with content "Test persistence"
 2. Refresh the page (F5 or Cmd+R)
 3. Verify:
@@ -127,7 +115,6 @@ window.elegantNotesDebug.debugStoreState()
    - [ ] Sidebar state persists
 
 #### Test: Persistence After Browser Restart
-
 1. Create a note
 2. Close browser tab/window
 3. Open app again
@@ -140,7 +127,6 @@ window.elegantNotesDebug.debugStoreState()
 ### 2. Hydration Tests
 
 #### Test: Server-Client Match
-
 1. Hard refresh page (Cmd+Shift+R / Ctrl+Shift+F5)
 2. Check browser console
 3. Verify:
@@ -149,14 +135,12 @@ window.elegantNotesDebug.debugStoreState()
    - [ ] No "Prop did not match" errors
 
 **Common hydration errors to watch for:**
-
 ```
 Warning: Text content did not match. Server: "..." Client: "..."
 Warning: Prop `className` did not match
 ```
 
 #### Test: Theme Hydration
-
 1. Set theme to dark
 2. Refresh page
 3. Verify:
@@ -165,7 +149,6 @@ Warning: Prop `className` did not match
    - [ ] No hydration warnings
 
 #### Test: HydrationBoundary Component
-
 1. Open React DevTools
 2. Navigate to Notes page
 3. Verify:
@@ -176,7 +159,6 @@ Warning: Prop `className` did not match
 ### 3. Performance Tests
 
 #### Test: Typing Performance
-
 1. Open Chrome DevTools Performance tab
 2. Click Record
 3. Type continuously for 10 seconds
@@ -187,13 +169,11 @@ Warning: Prop `className` did not match
    - [ ] Smooth typing experience
 
 **Expected metrics:**
-
 - Frame rate: 60 FPS
 - Input latency: < 16ms
 - No jank or stuttering
 
 #### Test: Sound Effects Performance
-
 1. Enable sound effects (volume icon)
 2. Type rapidly
 3. Verify:
@@ -205,7 +185,6 @@ Warning: Prop `className` did not match
 Check `SOUND_THROTTLE_MS` in `src/store/useNotesStore.ts`
 
 #### Test: Large Note Performance
-
 1. Create a note with 10,000+ words
 2. Try typing, selecting, scrolling
 3. Verify:
@@ -214,14 +193,12 @@ Check `SOUND_THROTTLE_MS` in `src/store/useNotesStore.ts`
    - [ ] Quick rendering
 
 **Generate large content:**
-
 ```javascript
-const largeText = 'word '.repeat(10000)
+const largeText = 'word '.repeat(10000);
 // Paste into note
 ```
 
 #### Test: Many Notes Performance
-
 1. Create 100+ notes
 2. Scroll through sidebar
 3. Search notes
@@ -231,16 +208,14 @@ const largeText = 'word '.repeat(10000)
    - [ ] No memory leaks
 
 **Generate many notes:**
-
 ```javascript
 // In browser console
 for (let i = 0; i < 100; i++) {
-  useNotesStore.getState().createNewNote()
+  useNotesStore.getState().createNewNote();
 }
 ```
 
 #### Test: Memory Leaks
-
 1. Open Chrome DevTools Memory tab
 2. Take heap snapshot (Snapshot 1)
 3. Use app for 5-10 minutes (type, create, delete notes)
@@ -252,7 +227,6 @@ for (let i = 0; i < 100; i++) {
    - [ ] No retained event listeners
 
 **Using debug utilities:**
-
 ```javascript
 // Take snapshots
 window.elegantNotesDebug.memoryDetector.takeSnapshot('start')
@@ -264,7 +238,6 @@ window.elegantNotesDebug.memoryDetector.compare('start', 'after')
 ### 4. Styling Tests
 
 #### Test: Dark/Light Theme
-
 1. Click theme toggle button
 2. Verify:
    - [ ] Theme changes immediately
@@ -274,7 +247,6 @@ window.elegantNotesDebug.memoryDetector.compare('start', 'after')
    - [ ] No color flashing
 
 **Areas to check:**
-
 - Main background
 - Sidebar background
 - Text colors
@@ -284,36 +256,30 @@ window.elegantNotesDebug.memoryDetector.compare('start', 'after')
 - Textarea
 
 #### Test: Responsive Design
-
 Test on different screen sizes:
 
 **Desktop (> 768px):**
-
 - [ ] Sidebar visible by default
 - [ ] Wide note area
 - [ ] Full toolbar visible
 
 **Tablet (768px):**
-
 - [ ] Sidebar toggleable
 - [ ] Note area adjusts
 - [ ] Mobile menu appears
 
 **Mobile (< 768px):**
-
 - [ ] Sidebar overlays
 - [ ] Mobile-optimized toolbar
 - [ ] Touch-friendly buttons
 - [ ] Proper spacing
 
 **Test in DevTools:**
-
 1. Open DevTools
 2. Click device toolbar (Cmd+Shift+M)
 3. Test iPhone, iPad, Desktop sizes
 
 #### Test: Zen Mode
-
 1. Click maximize icon to enter Zen Mode
 2. Verify:
    - [ ] Sidebar hidden
@@ -332,41 +298,34 @@ Test on different screen sizes:
 Test in all major browsers:
 
 #### Chrome/Edge
-
 - [ ] All features work
 - [ ] No console errors
 - [ ] Smooth performance
 
 #### Firefox
-
 - [ ] All features work
 - [ ] No console errors
 - [ ] Smooth performance
 
 #### Safari
-
 - [ ] All features work
 - [ ] No console errors
 - [ ] localStorage works
 - [ ] Theme switching works
 
 **Known Safari issues to watch:**
-
 - localStorage limits
 - CSS compatibility
 
 #### Mobile Browsers
-
 Test on actual devices if possible:
 
 **iOS Safari:**
-
 - [ ] Touch interactions work
 - [ ] Keyboard behavior correct
 - [ ] No scrolling issues
 
 **Chrome Mobile:**
-
 - [ ] All features work
 - [ ] Responsive design correct
 - [ ] No performance issues
@@ -374,7 +333,6 @@ Test on actual devices if possible:
 ### 6. Offline Functionality Tests
 
 #### Test: Offline Mode
-
 1. Open app
 2. Open DevTools Network tab
 3. Set throttling to "Offline"
@@ -386,14 +344,12 @@ Test on actual devices if possible:
    - [ ] Changes persist
 
 **Or use:**
-
 ```javascript
 // In Service Worker or offline test
 navigator.onLine // Should be false
 ```
 
 #### Test: Initial Load Offline
-
 1. Visit app once (loads assets)
 2. Close browser
 3. Disconnect internet
@@ -405,9 +361,7 @@ navigator.onLine // Should be false
 ### 7. Data Integrity Tests
 
 #### Test: localStorage Quota
-
 1. Check storage size:
-
 ```javascript
 window.elegantNotesDebug.getStorageSize()
 window.elegantNotesDebug.checkStorageQuota()
@@ -420,24 +374,20 @@ window.elegantNotesDebug.checkStorageQuota()
    - [ ] User is warned when near limit
 
 #### Test: Data Validation
-
 ```javascript
 // Validate store state
 window.elegantNotesDebug.validateStoreState(
-  JSON.parse(localStorage.getItem('elegant-notes-storage')).state,
+  JSON.parse(localStorage.getItem('elegant-notes-storage')).state
 )
 ```
 
 Verify:
-
 - [ ] All required fields present
 - [ ] Data types correct
 - [ ] No null/undefined where not expected
 
 #### Test: Data Corruption Recovery
-
 1. Manually corrupt localStorage:
-
 ```javascript
 localStorage.setItem('elegant-notes-storage', 'invalid json{')
 ```
@@ -449,7 +399,6 @@ localStorage.setItem('elegant-notes-storage', 'invalid json{')
    - [ ] Doesn't crash
 
 **Recovery steps:**
-
 ```javascript
 // Backup first!
 window.elegantNotesDebug.backupLocalStorage()
@@ -462,7 +411,6 @@ location.reload()
 ### 8. Keyboard Shortcuts Tests
 
 #### Test: Save Shortcut (Cmd/Ctrl+S)
-
 1. Edit a note
 2. Press Cmd+S (Mac) or Ctrl+S (Windows)
 3. Verify:
@@ -473,7 +421,6 @@ location.reload()
 ### 9. Edge Cases Tests
 
 #### Test: Empty Note
-
 1. Create note with no content
 2. Verify:
    - [ ] Shows "Empty note" in preview
@@ -481,7 +428,6 @@ location.reload()
    - [ ] Can still edit
 
 #### Test: Very Long Title
-
 1. Enter 200+ character title
 2. Verify:
    - [ ] Title truncates in sidebar
@@ -489,7 +435,6 @@ location.reload()
    - [ ] No layout breaks
 
 #### Test: Special Characters
-
 1. Enter special characters: `<>&"'`
 2. Verify:
    - [ ] Characters display correctly
@@ -497,7 +442,6 @@ location.reload()
    - [ ] No encoding issues
 
 #### Test: Emoji
-
 1. Enter emoji in title and content: 🎉📝✨
 2. Verify:
    - [ ] Emoji display correctly
@@ -505,7 +449,6 @@ location.reload()
    - [ ] Word count handles emoji
 
 #### Test: Multiple Tabs
-
 1. Open app in two browser tabs
 2. Make changes in tab 1
 3. Verify in tab 2:
@@ -516,7 +459,6 @@ location.reload()
 **Note:** Currently, changes won't sync between tabs in real-time. Each tab has its own state. Last save wins in localStorage.
 
 #### Test: Date Formatting
-
 1. Create notes on different days
 2. Verify date labels:
    - [ ] "Today" for current day
@@ -527,7 +469,6 @@ location.reload()
 ### 10. Accessibility Tests
 
 #### Test: Keyboard Navigation
-
 1. Use only keyboard (Tab, Enter, Arrow keys)
 2. Verify:
    - [ ] Can navigate all UI
@@ -536,7 +477,6 @@ location.reload()
    - [ ] Focus indicators visible
 
 #### Test: Screen Reader
-
 1. Enable VoiceOver (Mac) or NVDA (Windows)
 2. Navigate app
 3. Verify:
@@ -545,7 +485,6 @@ location.reload()
    - [ ] Form inputs have labels
 
 #### Test: Color Contrast
-
 1. Use browser's color contrast checker
 2. Verify:
    - [ ] Text meets WCAG AA (4.5:1)
@@ -577,21 +516,21 @@ import { useNotesStore } from '@/src/store/useNotesStore'
 describe('useNotesStore', () => {
   it('should create a new note', () => {
     const { result } = renderHook(() => useNotesStore())
-
+    
     act(() => {
       result.current.createNewNote()
     })
-
+    
     expect(result.current.notes).toHaveLength(2) // Including default note
   })
-
+  
   it('should update note content', () => {
     const { result } = renderHook(() => useNotesStore())
-
+    
     act(() => {
       result.current.updateNoteContent('Test content')
     })
-
+    
     expect(result.current.notes[0].content).toBe('Test content')
   })
 })
@@ -605,19 +544,19 @@ import { test, expect } from '@playwright/test'
 
 test('should create and edit a note', async ({ page }) => {
   await page.goto('/notes')
-
+  
   // Create new note
   await page.click('text=New Note')
-
+  
   // Enter title
   await page.fill('[name="title"]', 'Test Note')
-
+  
   // Enter content
   await page.fill('textarea', 'This is a test note')
-
+  
   // Refresh page
   await page.reload()
-
+  
   // Verify persistence
   await expect(page.locator('text=Test Note')).toBeVisible()
 })
@@ -627,25 +566,23 @@ test('should create and edit a note', async ({ page }) => {
 
 ### Target Metrics
 
-| Metric                   | Target  | Maximum |
-| ------------------------ | ------- | ------- |
-| First Contentful Paint   | < 1.5s  | 2.0s    |
-| Largest Contentful Paint | < 2.5s  | 3.0s    |
-| Time to Interactive      | < 3.0s  | 4.0s    |
-| Total Blocking Time      | < 200ms | 300ms   |
-| Cumulative Layout Shift  | < 0.1   | 0.25    |
+| Metric | Target | Maximum |
+|--------|--------|---------|
+| First Contentful Paint | < 1.5s | 2.0s |
+| Largest Contentful Paint | < 2.5s | 3.0s |
+| Time to Interactive | < 3.0s | 4.0s |
+| Total Blocking Time | < 200ms | 300ms |
+| Cumulative Layout Shift | < 0.1 | 0.25 |
 
 ### Lighthouse Scores
 
 Run Lighthouse audit:
-
 1. Open DevTools
 2. Go to Lighthouse tab
 3. Select categories
 4. Run audit
 
 **Target scores:**
-
 - Performance: > 90
 - Accessibility: > 95
 - Best Practices: > 90
@@ -657,35 +594,28 @@ When reporting bugs, include:
 
 ```markdown
 ### Bug Description
-
 [Clear description of the issue]
 
 ### Steps to Reproduce
-
-1.
-2.
-3.
+1. 
+2. 
+3. 
 
 ### Expected Behavior
-
 [What should happen]
 
 ### Actual Behavior
-
 [What actually happens]
 
 ### Environment
-
 - Browser: [Chrome 120, Firefox 115, etc.]
 - OS: [Windows 11, macOS 14, etc.]
 - Screen size: [1920x1080, mobile, etc.]
 
 ### Console Errors
 ```
-
 [Paste any console errors]
-
-````
+```
 
 ### Screenshots/Videos
 [Attach if applicable]
@@ -694,12 +624,10 @@ When reporting bugs, include:
 ```javascript
 // Run in console
 window.elegantNotesDebug.debugStoreState()
-````
+```
 
 ### Additional Context
-
 [Any other relevant information]
-
 ```
 
 ## Testing Schedule
@@ -727,4 +655,3 @@ window.elegantNotesDebug.debugStoreState()
 This testing guide ensures the Elegant Notes App maintains high quality and reliability. Use this checklist before releases and when investigating issues.
 
 For automated testing setup, refer to the framework documentation and example tests above.
-```
