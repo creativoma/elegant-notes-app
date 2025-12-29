@@ -10,6 +10,9 @@
 
 ### Fixed
 
+- Fix duplicate toast notifications when creating a new note
+- Fix ESLint exhaustive-deps warnings in useToast hook
+- Optimize useEffect dependencies to prevent unnecessary toast triggers
 - Fix ESLint configuration to use @typescript-eslint/no-unused-vars
 - Clean up unnecessary code comments
 - Simplify CHANGELOG and README documentation
