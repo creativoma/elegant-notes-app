@@ -23,21 +23,15 @@ export function sanitizeString(input: string): string {
 
 /**
  * Sanitizes note content
- * Allows more characters than sanitizeString but still prevents XSS
+ * React's JSX escaping provides XSS protection, this handles edge cases
  */
 export function sanitizeNoteContent(content: string): string {
   if (typeof content !== 'string') {
     return ''
   }
 
-  // Remove null bytes
-  let sanitized = content.replace(/\0/g, '')
-
-  // Remove any script tags (defense in depth, React already protects against this)
-  sanitized = sanitized.replace(
-    /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
-    '',
-  )
+  // Remove null bytes which can cause issues
+  const sanitized = content.replace(/\0/g, '')
 
   return sanitized
 }

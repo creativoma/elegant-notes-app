@@ -20,6 +20,17 @@ Permissions-Policy: camera=(), microphone=(), geolocation=()
 Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
 ```
 
+**Note on CSP `unsafe-inline` and `unsafe-eval`:**
+- Next.js with static export requires `unsafe-inline` for styles and scripts
+- React's framework code requires `unsafe-eval` for hydration
+- This is a known limitation of static site generation
+- The app still benefits from:
+  - React's built-in XSS protection (JSX escaping)
+  - No user-generated HTML rendering
+  - Strict same-origin policy
+  - Other CSP directives (frame-ancestors, form-action, etc.)
+- Alternative: Use server-side rendering instead of static export for stricter CSP
+
 ### Hosting Platform Examples
 
 #### Vercel
