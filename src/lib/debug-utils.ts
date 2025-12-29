@@ -19,7 +19,7 @@ export function getLocalStorageSize(): string {
   let total = 0
   try {
     for (const key in localStorage) {
-      if (localStorage.hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(localStorage, key)) {
         total += localStorage[key].length + key.length
       }
     }
@@ -90,7 +90,7 @@ export function backupLocalStorage(filename?: string): void {
   try {
     const backup: Record<string, string> = {}
     for (const key in localStorage) {
-      if (localStorage.hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(localStorage, key)) {
         backup[key] = localStorage[key]
       }
     }
@@ -337,14 +337,23 @@ export class MemoryLeakDetector {
       return
     }
 
-    // @ts-expect-error - memory is not in standard Performance interface
-    const memory = window.performance.memory
-    if (memory) {
-      this.snapshots.set(label, memory.usedJSHeapSize)
+    // Check if memory API is available (Chrome-specific)
+    const performance = window.performance as Performance & {
+      memory?: {
+        usedJSHeapSize: number
+        totalJSHeapSize: number
+        jsHeapSizeLimit: number
+      }
+    }
+
+    if (performance.memory) {
+      this.snapshots.set(label, performance.memory.usedJSHeapSize)
       console.log(
         `📸 Memory snapshot "${label}":`,
-        `${(memory.usedJSHeapSize / 1024 / 1024).toFixed(2)} MB`,
+        `${(performance.memory.usedJSHeapSize / 1024 / 1024).toFixed(2)} MB`,
       )
+    } else {
+      console.warn('Memory API not available in this browser (Chrome-only)')
     }
   }
 
@@ -389,7 +398,6 @@ export const memoryDetector = new MemoryLeakDetector()
  * Add these functions to window object for easy console access in development
  */
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
-  // @ts-expect-error - Adding debug utilities to window
   window.elegantNotesDebug = {
     getStorageSize: getLocalStorageSize,
     getStorageKeyInfo,
