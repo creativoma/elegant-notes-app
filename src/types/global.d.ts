@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 // Global type declarations for debug utilities
 
 import type { MemoryLeakDetector } from '@/src/lib/debug-utils'

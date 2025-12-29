@@ -1,6 +1,7 @@
 import nextPlugin from 'eslint-config-next'
 import prettierConfig from 'eslint-config-prettier'
 import prettierPlugin from 'eslint-plugin-prettier'
+import tseslint from 'typescript-eslint'
 
 const config = [
   ...nextPlugin,
@@ -8,6 +9,7 @@ const config = [
   {
     plugins: {
       prettier: prettierPlugin,
+      '@typescript-eslint': tseslint.plugin,
     },
     rules: {
       'react/no-unescaped-entities': 'off',
@@ -28,7 +30,8 @@ const config = [
         },
       ],
 
-      'no-unused-vars': [
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
         'warn',
         {
           argsIgnorePattern: '^_',
