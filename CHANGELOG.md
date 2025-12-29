@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.6] - 2025-12-29
+
+### Added
+
+- Auto-focus on note body textarea - When entering a note, creating a new note, or switching between notes, the textarea automatically receives focus, eliminating the need for an unnecessary click before starting to write. This feature works in both normal mode and Zen mode.
+
 ## [0.1.5] - 2025-12-06
 
 ### Changed
