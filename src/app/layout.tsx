@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter, Lora } from 'next/font/google'
-import './globals.css'
 import { ThemeProvider } from 'next-themes'
 import type React from 'react'
 
+import './globals.css'
+
+import { ErrorBoundary } from '@/src/components/error-boundary'
 import { NoteToaster } from '@/src/components/toaster'
 
 const lora = Lora({
@@ -36,15 +38,17 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <ThemeProvider
-          enableSystem={true}
-          attribute="class"
-          storageKey="theme"
-          defaultTheme="system"
-        >
-          {children}
-          <NoteToaster />
-        </ThemeProvider>
+        <ErrorBoundary>
+          <ThemeProvider
+            enableSystem={true}
+            attribute="class"
+            storageKey="theme"
+            defaultTheme="system"
+          >
+            {children}
+            <NoteToaster />
+          </ThemeProvider>
+        </ErrorBoundary>
       </body>
     </html>
   )

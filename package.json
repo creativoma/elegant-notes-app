@@ -15,7 +15,7 @@
     "format:check": "prettier --check .",
     "check": "npm run format:check && npm run lint",
     "fix": "npm run format && npm run lint:fix",
-    "prepublish": "pnpm fix"
+    "prepare": "npm run fix"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.18",
