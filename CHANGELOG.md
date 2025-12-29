@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.1] - 2025-12-29
+
+### Fixed
+
+- Fix duplicate toast notifications when creating or deleting notes (useToast hook was instantiated twice)
+
+### Changed
+
+- Replace `useToast`'s `showSavedToast` with inline toast notification in `useCommands`
+- Improve formatting of Note structure in CLAUDE.md
+
 ## [0.2.0] - 2025-12-29
 
 ### Changed

@@ -26,11 +26,11 @@ Node version 22 is required (see .nvmrc).
 
 ```typescript
 interface Note {
-  id: number // Unix timestamp
+  id: number              // Unix timestamp
   title: string
   content: string
-  createdAt: string // ISO date
-  updatedAt: string // ISO date
+  createdAt: string       // ISO date
+  updatedAt: string       // ISO date
   starred: boolean
 }
 ```
