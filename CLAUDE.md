@@ -23,13 +23,14 @@ Node version 22 is required (see .nvmrc).
 **State Management:** Single Zustand store in `src/store/useNotesStore.ts` manages all app state including notes array, active note selection, sidebar/zen mode toggles, and sound preferences. Uses localStorage persistence middleware for selective state hydration.
 
 **Note Structure:**
+
 ```typescript
 interface Note {
-  id: number              // Unix timestamp
+  id: number // Unix timestamp
   title: string
   content: string
-  createdAt: string       // ISO date
-  updatedAt: string       // ISO date
+  createdAt: string // ISO date
+  updatedAt: string // ISO date
   starred: boolean
 }
 ```
