@@ -83,15 +83,6 @@ export function useToast() {
     prevActiveNoteId.current = activeNoteId
   }, [activeNoteId, notes, isZenMode])
 
-  const showSavedToast = () => {
-    if (!isZenMode) {
-      toast.success('Note saved', {
-        description: 'Your changes have been saved automatically',
-        duration: 1500,
-      })
-    }
-  }
-
   const showAutoSaveToast = () => {
     if (!isZenMode) {
       toast.success('Auto-saved', {
@@ -134,7 +125,6 @@ export function useToast() {
   }
 
   return {
-    showSavedToast,
     showAutoSaveToast,
     showStarToast,
     showDownloadToast,

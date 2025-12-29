@@ -1,18 +1,21 @@
 import { useEffect } from 'react'
+import { toast } from 'sonner'
 
 import { useNotesStore } from '@/src/store/useNotesStore'
 
-import { useToast } from './useToast'
-
 export function useCommands() {
-  const { notes, activeNoteId } = useNotesStore()
-  const { showSavedToast } = useToast()
+  const { notes, activeNoteId, isZenMode } = useNotesStore()
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key === 's') {
         event.preventDefault()
-        showSavedToast()
+        if (!isZenMode) {
+          toast.success('Note saved', {
+            description: 'Your changes have been saved automatically',
+            duration: 1500,
+          })
+        }
       }
     }
 
@@ -21,5 +24,5 @@ export function useCommands() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [notes, activeNoteId, showSavedToast])
+  }, [notes, activeNoteId, isZenMode])
 }
