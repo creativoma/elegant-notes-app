@@ -1,6 +1,6 @@
 # Elegant Notes App
 
-[![Version](https://img.shields.io/badge/version-0.1.5-blue.svg?style=flat-square)](https://github.com/creativoma/elegant-notes-app/releases)
+[![Version](https://img.shields.io/badge/version-0.2.0-blue.svg?style=flat-square)](https://github.com/creativoma/elegant-notes-app/releases)
 
 ![Home Page](public/screenshot.png)
 
@@ -25,7 +25,7 @@ This application was created to fulfill a personal need for a clean, intuitive n
 
 ## Technology Stack
 
-- **Framework**: Next.js 15 with React 19
+- **Framework**: Next.js 16 with React 19
 - **Styling**: Tailwind CSS 4
 - **State Management**: Zustand
 - **Animations**: Motion (Framer Motion)
@@ -58,16 +58,8 @@ If you find this project useful, consider sponsoring its development:
 
 The application uses browser local storage for data persistence, ensuring your notes remain private and accessible without internet connectivity. The interface is designed to be minimal and focused, removing unnecessary UI elements that could distract from writing.
 
-Built with performance in mind, the app uses Next.js 15's latest features including Turbopack for fast development builds and optimized production bundles.
+Built with performance in mind, the app uses Next.js 16's latest features including Turbopack for fast development builds and optimized production bundles.
 
 ## Changelog
 
 For detailed release notes and version history, see [CHANGELOG.md](CHANGELOG.md)
-
-## Debugging and Testing
-
-For comprehensive debugging workflows and testing procedures:
-- **[DEBUGGING.md](DEBUGGING.md)** - Complete debugging guide with common issues and solutions
-- **[TESTING.md](TESTING.md)** - Manual and automated testing procedures
-
-Debug utilities are available in development mode via `window.elegantNotesDebug` in the browser console.
