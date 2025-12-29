@@ -75,10 +75,14 @@ export const NotesPage = () => {
   }, [activeNoteId, notes, setActiveNote])
 
   useEffect(() => {
-    if (isZenMode && textareaRef.current) {
-      textareaRef.current.focus()
+    if (textareaRef.current) {
+      // Focus on Zen mode changes or when activeNoteId changes in normal mode
+      const shouldFocus = isZenMode || activeNoteId !== null
+      if (shouldFocus) {
+        textareaRef.current.focus()
+      }
     }
-  }, [isZenMode, textareaRef, currentNote])
+  }, [isZenMode, activeNoteId])
 
   const downloadNote = () => {
     if (!currentNote) return

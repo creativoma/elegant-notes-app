@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.6] - 2025-12-29
+## [0.1.8] - 2025-12-29
 
 ### Fixed
 
@@ -19,6 +19,18 @@
 - Implement safe property access via `Object.prototype.hasOwnProperty.call()`
 - Add browser compatibility checks for Chrome-specific APIs
 - Zero CodeQL vulnerabilities verified
+
+## [0.1.7] - 2025-12-29
+
+### Changed
+
+- Validate codebase compliance with Feature Development Specialist guidelines - Comprehensive assessment confirming full compliance with all architectural and implementation guidelines including technology stack, privacy-first approach, TypeScript type safety, minimalist philosophy, offline capability, responsive design, code quality standards, state management patterns, and localStorage data structure. No code changes required as codebase already meets all requirements.
+
+## [0.1.6] - 2025-12-29
+
+### Added
+
+- Auto-focus on note body textarea - When entering a note, creating a new note, or switching between notes, the textarea automatically receives focus, eliminating the need for an unnecessary click before starting to write. This feature works in both normal mode and Zen mode.
 
 ## [0.1.5] - 2025-12-06
 
