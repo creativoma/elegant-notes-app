@@ -3,7 +3,7 @@
 export const NotesLoading = () => {
   return (
     <div className="flex h-screen min-w-5xl">
-      <aside className="w-64 flex-shrink-0 border-r border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
+      <aside className="w-64 shrink-0 border-r border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
         <div className="flex h-full w-full flex-col">
           <div className="border-b border-gray-200 p-4 dark:border-gray-700">
             <div className="mb-4 flex items-center justify-between">

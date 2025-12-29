@@ -4,7 +4,7 @@ export const SquarePattern = () => {
   return (
     <svg
       aria-hidden="true"
-      className="fill-accent/50 stroke-accent/50 pointer-events-none absolute inset-0 [z-index:0] size-full [mask-image:linear-gradient(to_top,_#ffffffad,_transparent)] opacity-[.40]"
+      className="fill-accent/50 stroke-accent/50 pointer-events-none absolute inset-0 z-0 size-full mask-[linear-gradient(to_top,#ffffffad,transparent)] opacity-[.40]"
     >
       <defs>
         <pattern

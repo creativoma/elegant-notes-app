@@ -60,7 +60,7 @@ export const Main = () => {
         <h2 className="mb-6 font-serif text-4xl leading-tight font-bold tracking-tight sm:text-5xl md:mb-8 md:text-6xl lg:text-7xl">
           Your space to{' '}
           <span>
-            <TypingAnimation className="from-accent to-accent-hover/30 !inline bg-gradient-to-r bg-clip-text font-serif text-4xl text-transparent italic sm:text-5xl md:text-6xl lg:!text-7xl">
+            <TypingAnimation className="from-accent to-accent-hover/30 inline! bg-linear-to-r bg-clip-text font-serif text-4xl text-transparent italic sm:text-5xl md:text-6xl lg:text-7xl!">
               think.
             </TypingAnimation>
           </span>
@@ -69,7 +69,7 @@ export const Main = () => {
           <span>
             <TypingAnimation
               delay={1000}
-              className="from-accent/30 to-accent-hover !inline bg-gradient-to-r bg-clip-text font-serif text-5xl text-transparent italic sm:text-6xl md:text-7xl lg:!text-8xl"
+              className="from-accent/30 to-accent-hover inline! bg-linear-to-r bg-clip-text font-serif text-5xl text-transparent italic sm:text-6xl md:text-7xl lg:text-8xl!"
             >
               create.
             </TypingAnimation>

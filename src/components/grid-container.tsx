@@ -136,7 +136,7 @@ const Corner = ({
 
   return (
     <div
-      className={`absolute z-[999] h-[7px] w-[7px] rotate-45 rounded-[1px] border ${colors.cornerBorder} bg-white`}
+      className={`absolute z-999 size-1.75 rotate-45 rounded-[1px] border ${colors.cornerBorder} bg-white`}
       style={positions[position]}
     />
   )
@@ -208,7 +208,7 @@ export const GridContainer = ({
           <div
             style={{ backgroundImage: 'url(/noise.png)' }}
             className={cn(
-              'pointer-events-none absolute inset-0 bg-[size:180px] bg-repeat opacity-[0.025]',
+              'pointer-events-none absolute inset-0 bg-size-[180px] bg-repeat opacity-[0.025]',
               className,
             )}
           />

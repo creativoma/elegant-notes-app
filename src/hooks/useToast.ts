@@ -23,6 +23,12 @@ export function useToast() {
     if (isZenMode) return
 
     const now = Date.now()
+    const hasLengthChanged = notes.length !== prevNotesCount.current
+
+    // Only show toasts when the length actually changed, not just when notes array updates
+    if (!hasLengthChanged) {
+      return
+    }
 
     if (notes.length > prevNotesCount.current) {
       if (now - lastToastTime.current > 1000) {
@@ -36,9 +42,7 @@ export function useToast() {
           lastCreatedNoteId.current = newestNote.id
         }
       }
-    }
-
-    if (notes.length < prevNotesCount.current) {
+    } else if (notes.length < prevNotesCount.current) {
       if (now - lastToastTime.current > 1000) {
         toast.success('Note deleted', {
           description: 'Note has been removed successfully',
@@ -49,7 +53,8 @@ export function useToast() {
     }
 
     prevNotesCount.current = notes.length
-  }, [notes.length, isZenMode, notes, activeNoteId])
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- activeNoteId only used for initialization
+  }, [notes, isZenMode])
 
   useEffect(() => {
     if (isInitialMount.current) return

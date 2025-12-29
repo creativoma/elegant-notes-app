@@ -88,7 +88,7 @@ export const NotesEditor: FC<NotesEditorProps> = ({
                 currentNote && updateNoteTitle(currentNote.id, e.target.value)
               }
               placeholder="Untitled"
-              className="!m-0 min-w-0 flex-1 truncate border-none bg-transparent text-sm font-medium outline-none sm:text-base"
+              className="m-0! min-w-0 flex-1 truncate border-none bg-transparent text-sm font-medium outline-none sm:text-base"
             />
             <p className="-mb-0.5 hidden text-xs text-gray-500 sm:block dark:text-gray-400">
               {formatDate(currentNote?.updatedAt || new Date().toISOString())}

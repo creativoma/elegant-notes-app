@@ -40,7 +40,7 @@ export const NotesVizualizer: FC<NotesVizualizerProps> = ({ className }) => {
             </div>
           </div>
 
-          <div className="flex h-[570px]">
+          <div className="flex h-142.5">
             <div className="w-64 border-r border-gray-200 bg-gray-50">
               <div className="flex h-full w-full flex-col">
                 <div className="border-b border-gray-200 p-4">

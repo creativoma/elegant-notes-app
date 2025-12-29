@@ -60,7 +60,7 @@ export const NotesSidebar: FC<NotesSidebarProps> = ({
 }) => {
   return (
     <aside
-      className={`flex-shrink-0 border-r border-gray-200 bg-gray-50 transition-all duration-300 dark:border-gray-700 dark:bg-gray-800 ${
+      className={`shrink-0 border-r border-gray-200 bg-gray-50 transition-all duration-300 dark:border-gray-700 dark:bg-gray-800 ${
         isSidebarOpen ? 'w-64 md:w-64' : 'w-0'
       } fixed top-0 left-0 z-50 h-full overflow-hidden md:relative md:z-auto`}
     >
@@ -78,7 +78,7 @@ export const NotesSidebar: FC<NotesSidebarProps> = ({
               </Link>
               <Logo
                 className={cn(
-                  'text-base md:!text-lg',
+                  'text-base md:text-lg!',
                   theme === 'dark' ? 'text-white' : 'text-accent',
                 )}
               />
@@ -137,7 +137,7 @@ export const NotesSidebar: FC<NotesSidebarProps> = ({
                       e.stopPropagation()
                       updateNoteTitle(note.id, e.target.value)
                     }}
-                    className="w-full max-w-[120px] truncate border-none bg-transparent text-sm font-medium outline-none sm:max-w-[163px]"
+                    className="w-full max-w-30 truncate border-none bg-transparent text-sm font-medium outline-none sm:max-w-40.75"
                     onClick={(e) => e.stopPropagation()}
                   />
                   <div className="flex items-center gap-2">
