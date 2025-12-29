@@ -1,5 +1,36 @@
 # Changelog
 
+## [0.1.7] - 2025-12-29
+
+### Changed
+
+- **Major Framework Updates:**
+  - Update Next.js from 15.5.7 to 16.1.1 with ESLint configuration migration
+  - Update React from 19.2.1 to 19.2.3 and React DOM from 19.2.1 to 19.2.3
+  - Update @types/node from 22.19.1 to 25.0.3
+
+- **Development Dependencies:**
+  - Update TypeScript ESLint from 8.48.1 to 8.50.1
+  - Update ESLint from 9.39.1 to 9.39.2
+  - Update Prettier Tailwind plugin from 0.6.14 to 0.7.2
+
+- **UI & Styling Dependencies:**
+  - Update Tailwind CSS from 4.1.17 to 4.1.18
+  - Update @tailwindcss/postcss from 4.1.17 to 4.1.18
+  - Update Lucide React icons from 0.525.0 to 0.562.0
+  - Update Motion (Framer Motion) from 12.23.25 to 12.23.26
+
+### Migration
+
+- **ESLint Configuration:**
+  - Migrated from legacy `.eslintrc.json` to modern `eslint.config.mjs` (flat config format)
+  - Updated lint scripts from `next lint` to `eslint .` (Next.js 16 breaking change)
+  - Added @eslint/eslintrc dependency for compatibility
+
+- **Code Quality:**
+  - Added explanatory comments for ESLint disable directives in hydration boundaries
+  - Fixed React hooks linting for intentional hydration patterns in HydrationBoundary and useClientTheme
+
 ## [0.1.6] - 2025-12-29
 
 ### Added
