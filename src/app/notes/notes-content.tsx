@@ -80,6 +80,12 @@ export const NotesPage = () => {
     }
   }, [isZenMode, textareaRef, currentNote])
 
+  useEffect(() => {
+    if (!isZenMode && textareaRef.current && activeNoteId !== null) {
+      textareaRef.current.focus()
+    }
+  }, [activeNoteId, isZenMode])
+
   const downloadNote = () => {
     if (!currentNote) return
 
