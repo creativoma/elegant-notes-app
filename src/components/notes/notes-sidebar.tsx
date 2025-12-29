@@ -32,14 +32,14 @@ interface NotesSidebarProps {
   filteredNotes: Note[]
   activeNoteId: number | null
   setIsSidebarOpen: (value: boolean) => void
-  setSearchTerm: (term: string) => void
+  setSearchTerm: (value: string) => void
   createNewNote: () => void
-  setActiveNote: (id: number) => void
+  setActiveNote: (value: number) => void
   updateNoteTitle: (id: number, title: string) => void
-  deleteNote: (id: number) => void
-  toggleStar: (id: number) => void
-  showStarToast: (isStarred: boolean) => void
-  formatDate: (dateString: string) => string
+  deleteNote: (value: number) => void
+  toggleStar: (value: number) => void
+  showStarToast: (value: boolean) => void
+  formatDate: (value: string) => string
 }
 
 export const NotesSidebar: FC<NotesSidebarProps> = ({

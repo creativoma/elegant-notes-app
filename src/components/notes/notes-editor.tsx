@@ -32,14 +32,14 @@ interface NotesEditorProps {
   textareaRef: RefObject<HTMLTextAreaElement | null>
   setIsSidebarOpen: (value: boolean) => void
   updateNoteTitle: (id: number, title: string) => void
-  updateNoteContent: (content: string) => void
+  updateNoteContent: (value: string) => void
   setSoundEnabled: (value: boolean) => void
   setIsZenMode: (value: boolean) => void
-  showZenModeToast: (isEnabled: boolean) => void
+  showZenModeToast: (value: boolean) => void
   showAutoSaveToast: () => void
   downloadNote: () => void
-  setTheme: (theme: string) => void
-  formatDate: (dateString: string) => string
+  setTheme: (value: string) => void
+  formatDate: (value: string) => string
 }
 
 export const NotesEditor: FC<NotesEditorProps> = ({

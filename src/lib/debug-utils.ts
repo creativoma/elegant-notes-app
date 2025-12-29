@@ -1,4 +1,4 @@
-/* eslint-disable no-console, no-unused-vars */
+/* eslint-disable no-console */
 /**
  * Debug Utilities for Elegant Notes App
  *
@@ -60,7 +60,7 @@ export function getStorageKeyInfo(key: string): {
     try {
       const parsed = JSON.parse(data)
       return { exists: true, size, isValid: true, data: parsed }
-    } catch (parseError) {
+    } catch {
       return {
         exists: true,
         size,

@@ -12,9 +12,9 @@ interface ZenModeViewProps {
     | undefined
   wordCount: number
   textareaRef: RefObject<HTMLTextAreaElement | null>
-  updateNoteContent: (content: string) => void
+  updateNoteContent: (value: string) => void
   setIsZenMode: (value: boolean) => void
-  showZenModeToast: (isEnabled: boolean) => void
+  showZenModeToast: (value: boolean) => void
   showAutoSaveToast: () => void
 }
 

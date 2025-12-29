@@ -56,7 +56,7 @@ const playKeyPressSound = () => {
     })
 
     lastSoundTime = now
-  } catch (error) {
+  } catch {
     audioInstance = null
   }
 }
