@@ -71,6 +71,7 @@ export const NotesVizualizer: FC<NotesVizualizerProps> = ({ className }) => {
                       placeholder="Search your notes..."
                       className="w-full border border-gray-200 bg-white py-2 pr-3 pl-9 text-sm text-gray-900 placeholder-gray-500"
                       readOnly
+                      suppressHydrationWarning
                     />
                   </div>
                 </div>

@@ -14,6 +14,17 @@ interface TypingAnimationProps extends MotionProps {
   startOnView?: boolean
 }
 
+const motionComponentCache = new Map<React.ElementType, any>()
+
+function getMotionComponent(as: React.ElementType) {
+  let MotionComponent = motionComponentCache.get(as)
+  if (!MotionComponent) {
+    MotionComponent = motion.create(as, { forwardMotionProps: true })
+    motionComponentCache.set(as, MotionComponent)
+  }
+  return MotionComponent
+}
+
 export function TypingAnimation({
   children,
   className,
@@ -23,9 +34,7 @@ export function TypingAnimation({
   startOnView = false,
   ...props
 }: TypingAnimationProps) {
-  const MotionComponent = motion.create(Component, {
-    forwardMotionProps: true,
-  })
+  const MotionComponent = getMotionComponent(Component)
 
   const [displayedText, setDisplayedText] = useState<string>('')
   const [started, setStarted] = useState(false)
@@ -77,6 +86,7 @@ export function TypingAnimation({
   }, [children, duration, started])
 
   return (
+    // eslint-disable-next-line react-hooks/static-components -- getMotionComponent caches by `as` so identity is stable across renders, unlike motion.create() called inline
     <MotionComponent
       ref={elementRef}
       className={cn(
